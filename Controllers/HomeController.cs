@@ -1,6 +1,7 @@
-using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SecureJwtMiniProject.Models;
+using System.Diagnostics;
 
 namespace SecureJwtMiniProject.Controllers;
 
@@ -17,7 +18,11 @@ public class HomeController : Controller
     {
         return View();
     }
-
+    [Authorize]
+    public IActionResult Dashboard()
+    {
+        return View();
+    }
     public IActionResult Privacy()
     {
         return View();
