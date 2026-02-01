@@ -2,6 +2,7 @@
 using SecureJwtMiniProject.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 public class TokenService : ITokenService
@@ -39,4 +40,12 @@ public class TokenService : ITokenService
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
+    
+
+public string GenerateRefreshToken()
+{
+    return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
+}
+
 }
